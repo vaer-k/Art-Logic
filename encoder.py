@@ -7,15 +7,15 @@ def encode(num: int) -> str:
     """Encode signed 14-bit integer in standardized hex format
 
     >>> encode(6111)
-    '6f5f'
+    '6F5F'
     >>> encode(340)
     '4254'
     >>> encode(-2628)
-    '2b3c'
+    '2B3C'
     >>> encode(-255)
-    '3e01'
+    '3E01'
     >>> encode(7550)
-    '7a7e'
+    '7A7E'
 
     """
 
