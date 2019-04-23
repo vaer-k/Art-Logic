@@ -1,0 +1,27 @@
+{% extends "head.html" %}
+
+{% block content %}
+
+<h1 class="is-size-3">Results</h1>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for query, result in results %}
+    <tr>
+      <td>{{query}}</td>
+      <td>{{result}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<a class="button is-primary" href="javascript:history.back()">Back</a>
+
+{% endblock %}

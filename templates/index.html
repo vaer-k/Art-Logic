@@ -1,0 +1,61 @@
+{% extends "head.html" %}
+
+
+{% block content %}
+
+<main>
+
+  <div class="section tile is-ancestor">
+    <div class="tile is-5 is-vertical">
+      <div class="tile"><h1>Encode</h1></div>
+      <input id="encodesingle" class="tile" type="text" onkeyup="displayResult('encode', this.value);" value="" placeholder="Enter a value to encode here" />      
+    </div>
+
+    <div class="tile is-2 is-vertical"></div>     
+
+    <div class="tile is-5 is-vertical">
+      <div class="tile"><h1>Decode</h1></div>
+      <input id="decodesingle" class="tile" type="text" onkeyup="displayResult('decode', this.value);" value="" placeholder="Enter a value to decode here" />      
+    </div>    
+  </div>
+
+  <div class="content"><h1 class="is-size-3">OR</h1></div>
+
+  <form class="content" enctype="multipart/form-data" method="post" action="/encode">
+    <div class="field">
+      <label for="encodefile" class="label">Select file to encode:</label>
+      <div class="control">
+        <input id="encodefile" type="file" name="encoder_input" />
+        <button class="button is-primary" type="submit" value="submit">Submit</button>
+      </div>
+      <p class="help">This should be a .txt file with a single value to encode on each line.</p>
+    </div>  
+  </form>
+
+  <div class="content"><h1 class="is-size-3">OR</h1></div>
+
+  <form class="content" enctype="multipart/form-data" method="post" action="/decode">
+    <div class="field">
+      <label for="decodefile" class="label">Select file to decode:</label>
+      <div class="control">
+        <input id="decodefile" type="file" name="decoder_input" />
+        <button class="button is-primary" type="submit" value="submit">Submit</button>                
+      </div>
+      <p class="help">This should be a .txt file with a single value to decode on each line.</p>
+    </div>  
+  </form>
+
+  <hr>
+
+  <div class="content">
+    <p>Two files exist in the root directory of this project for your convenience:</p>
+    <ul>
+      <li>encoder_test_values.txt</li>
+      <li>decoder_test_values.txt</li>
+    </ul>
+  </div>
+
+</main>
+
+{% endblock %}
+

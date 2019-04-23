@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script language="JavaScript">
+    function fetchResult(kind, input_num) {
+        uri = `/${kind}-single/${input_num}`
+        return fetch(uri, {method: "POST"})
+            .then(function(response) {
+                return response.text();
+            })        
+    }
+    function displayResult(kind, input_num) {
+        let resultKind = {"decode": "encode", "encode": "decode"}[kind]
+        
+        if (input_num == "") {
+            document.getElementById(`${resultKind}single`).value = "";
+        } else {
+            fetchResult(kind, input_num).then(function(result) {
+                document.getElementById(`${resultKind}single`).value = result;
+            });
+        }
+    }
+  </script>
+</head>
+
+<title>Art+Logic Programming Challeng</title>
+<a href="javascript:history.back()">
+  <section class="hero is-primary">
+    <div class="hero-body">
+
+      <div class="container">
+        <h1 class="title">
+          Art+Logic Programming Challenge
+        </h1>
+        <h2 class="subtitle">
+          Part 1
+        </h2>
+      </div>
+    </div>
+  </section>
+</a>
+
+<div class="section">
+<div class="container">
+{% block content %}{% endblock %}
+</div></div>
+

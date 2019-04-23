@@ -1,0 +1,13 @@
+{% extends "head.html" %}
+
+{% block content %}
+
+<h1 class="is-size-3">Failed to parse and run encoder:</h1>
+<div class="content">
+  <p>{{error}}</p>
+  <p>Are you sure you submitted a valid file?</p>
+</div>
+
+<a class="button is-primary" href="javascript:history.back()">Back</a>
+
+{% endblock %}
